@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @trip.date
+%p
+  %b Location:
+  = @trip.location
+%p
+  %b Opponent:
+  = @trip.opponent
+%p
+  %b Fire score:
+  = @trip.fire_score
+%p
+  %b Opponent score:
+  = @trip.opponent_score
+
+= link_to 'Edit', edit_trip_path(@trip)
+\|
+= link_to 'Back', trips_path
