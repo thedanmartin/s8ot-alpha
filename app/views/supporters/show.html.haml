@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @supporter.name
+%p
+  %b Years traveling:
+  = @supporter.years_traveling
+%p
+  %b Matches:
+  = @supporter.matches
+%p
+  %b Ejections:
+  = @supporter.ejections
+
+= link_to 'Edit', edit_supporter_path(@supporter)
+\|
+= link_to 'Back', supporters_path

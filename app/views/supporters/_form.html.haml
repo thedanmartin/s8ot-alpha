@@ -1,0 +1,22 @@
+= form_for @supporter do |f|
+  - if @supporter.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@supporter.errors.count, "error")} prohibited this supporter from being saved:"
+      %ul
+        - @supporter.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :years_traveling
+    = f.number_field :years_traveling
+  .field
+    = f.label :matches
+    = f.number_field :matches
+  .field
+    = f.label :ejections
+    = f.number_field :ejections
+  .actions
+    = f.submit 'Save'
