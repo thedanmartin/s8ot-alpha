@@ -4,7 +4,7 @@
   %b Name:
   = @supporter.name
 %p
-  %b Years traveling:
+  %b Years Traveling:
   = @supporter.years_traveling
 %p
   %b Matches:
@@ -13,6 +13,6 @@
   %b Ejections:
   = @supporter.ejections
 
-= link_to 'Edit', edit_supporter_path(@supporter)
-\|
-= link_to 'Supporter Listing', supporters_path
+%ul
+  %li= link_to 'Edit', edit_supporter_path(@supporter)
+  %li= link_to 'Supporter Listing', supporters_path
