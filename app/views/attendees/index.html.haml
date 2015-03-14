@@ -1,0 +1,27 @@
+%h1 Listing attendees
+
+%table
+  %thead
+    %tr
+      %th Supporter
+      %th Trip
+      %th Location
+      %th Opponent
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @attendees.each do |attendee|
+      %tr
+        %td= attendee.supporter.nil? ? attendee.supporter : attendee.supporter.name
+        %td= attendee.trip.nil? ? attendee.trip : attendee.trip.date
+        %td= attendee.trip.nil? ? attendee.trip : attendee.trip.location
+        %td= attendee.trip.nil? ? attendee.trip : attendee.trip.opponent
+        %td= link_to 'Show', attendee
+        %td= link_to 'Edit', edit_attendee_path(attendee)
+        %td= link_to 'Destroy', attendee, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Attendee', new_attendee_path

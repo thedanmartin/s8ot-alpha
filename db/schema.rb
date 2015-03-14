@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220215606) do
+ActiveRecord::Schema.define(version: 20150314003414) do
+
+  create_table "attendees", force: :cascade do |t|
+    t.integer  "supporter_id"
+    t.integer  "trip_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "attendees", ["supporter_id"], name: "index_attendees_on_supporter_id"
+  add_index "attendees", ["trip_id"], name: "index_attendees_on_trip_id"
 
   create_table "supporters", force: :cascade do |t|
     t.string   "name"
@@ -23,11 +33,11 @@ ActiveRecord::Schema.define(version: 20150220215606) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string   "date"
+    t.date     "date"
     t.string   "location"
     t.string   "opponent"
     t.integer  "fire_score"
-    t.string   "opponent_score"
+    t.integer  "opponent_score"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
