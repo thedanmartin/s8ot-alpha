@@ -1,0 +1,16 @@
+// Place all the styles related to the Attendees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+table.grouped {
+  border-collapse: separate;
+  margin: 2em 0 0 0;
+}
+
+table.grouped td {
+  vertical-align: top;
+  border: black 1px solid;
+}
