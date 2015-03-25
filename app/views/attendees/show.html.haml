@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Supporter:
+  = @attendee.supporter.nil? ? @attendee.supporter : @attendee.supporter.name
+%p
+  %b Trip:
+  = @attendee.trip.nil? ? @attendee.trip : @attendee.trip.date
+
+= link_to 'Edit', edit_attendee_path(@attendee)
+\|
+= link_to 'Back', attendees_path

@@ -45,3 +45,6 @@ group :development, :test do
   gem 'spring'
 end
 
+# From 'https://github.com/rroblak/seed_dump'
+# '"Seed dump" allows you to create seed data files from the existing data in your database.'
+gem 'seed_dump'

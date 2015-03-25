@@ -1,0 +1,57 @@
+%h1 Listing attendees
+
+%table
+  %thead
+    %tr
+      %th Supporter
+      %th Date
+      %th Location
+      %th Opponent
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @attendees.each do |attendee|
+      %tr
+        %td= attendee.supporter.nil? ? attendee.supporter : attendee.supporter.name
+        %td= attendee.trip.nil? ? attendee.trip : attendee.trip.date
+        %td= attendee.trip.nil? ? attendee.trip : attendee.trip.location
+        %td= attendee.trip.nil? ? attendee.trip : attendee.trip.opponent
+        %td= link_to 'Show', attendee
+        %td= link_to 'Edit', edit_attendee_path(attendee)
+        %td= link_to 'Destroy', attendee, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Attendee', new_attendee_path
+
+%br
+
+%table.grouped
+  %thead
+    %tr
+      %th Date
+      %th Location
+      %th Opponent
+      %th Supporter(s)
+
+  %tbody
+    - @grouped_by_trips.each do |g_trip, grouped|
+      %tr
+        %td
+          %p= g_trip.nil? ? g_trip : @trips.find(g_trip).date
+        %td
+          %p= g_trip.nil? ? g_trip : @trips.find(g_trip).location
+        %td
+          %p= g_trip.nil? ? g_trip : @trips.find(g_trip).opponent
+        %td
+          - grouped.each do |g_attendee|
+            %p= g_attendee.supporter.nil? ? g_attendee.supporter : g_attendee.supporter.name
+
+
+
+
+
+
+
